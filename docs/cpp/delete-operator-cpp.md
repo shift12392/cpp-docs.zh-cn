@@ -35,7 +35,7 @@ ms.lasthandoff: 05/03/2018
 ```  
   
 ## <a name="remarks"></a>备注  
- *强制转换表达式*参数必须是指向以前分配给与创建的对象的内存块的指针[new 运算符](../cpp/new-operator-cpp.md)。 **删除**运算符的结果类型为`void`，因此不会返回一个值。 例如：  
+ *cast-expression*参数必须是指向以前使用[new 运算符](../cpp/new-operator-cpp.md)创建对象时分配的内存块。 **删除**运算符的结果类型为`void`，因此不会返回一个值。 例如：  
   
 ```  
 CDialog* MyDialog = new CDialog;  
@@ -43,7 +43,7 @@ CDialog* MyDialog = new CDialog;
 delete MyDialog;  
 ```  
   
- 使用**删除**指向不与分配的对象的指针上**新**提供不可预知的结果。 但是，你可以使用**删除**值 0 的指针。 此设置意味着，当**新**在失败时，删除失败的结果都返回 0**新**操作不会造成损害。 请参阅[新和 delete 运算符](../cpp/new-and-delete-operators.md)有关详细信息。  
+ 如果一个对象不是**new**出来的，使用**delete**销毁它，其行为不可预知。 但是，你可以使用**delete**值 0 的指针。 此设置意味着，当**new**在失败时，删除失败的结果都返回 0**新**操作不会造成损害。 请参阅[新和 delete 运算符](../cpp/new-and-delete-operators.md)有关详细信息。  
   
  **新**和**删除**运算符可以还用于内置类型，包括数组。 如果 `pointer` 指的是某一数组，请在 `pointer` 前放置空括号：  
   
